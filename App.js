@@ -11,9 +11,12 @@ import {
   extendTheme,
   VStack,
   Box,
+  Input,
+  View
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
 import { Platform } from "react-native";
+import Calculator from "./Calc"
 
 // Define the config
 const config = {
@@ -27,6 +30,11 @@ export const theme = extendTheme({ config });
 export default function App() {
   return (
     <NativeBaseProvider>
+      <View style={{ paddingTop: 10, paddingLeft: 10 }}
+       _dark={{ bg: "blueGray.900" }}
+       _light={{ bg: "blueGray.50" }}>
+        <ToggleDarkMode />
+      </View>
       <Center
         _dark={{ bg: "blueGray.900" }}
         _light={{ bg: "blueGray.50" }}
@@ -34,32 +42,14 @@ export default function App() {
         flex={1}
       >
         <VStack space={5} alignItems="center">
-          <NativeBaseIcon />
-          <Heading size="lg">Welcome to NativeBase</Heading>
-          <HStack space={2} alignItems="center">
-            <Text>Edit</Text>
-            <Box
-              _web={{
-                _text: {
-                  fontFamily: "monospace",
-                  fontSize: "sm",
-                },
-              }}
-              px={2}
-              py={1}
-              _dark={{ bg: "blueGray.800" }}
-              _light={{ bg: "blueGray.200" }}
-            >
-              App.js
-            </Box>
-            <Text>and save to reload.</Text>
-          </HStack>
-          <Link href="https://docs.nativebase.io" isExternal>
-            <Text color="primary.500" underline fontSize={"xl"}>
-              Learn NativeBase
-            </Text>
-          </Link>
-          <ToggleDarkMode />
+          {/* <NativeBaseIcon /> */}
+         
+          <Heading size="lg">Cколько нужно закупить
+          <br/>
+          продуктов с учетом ужарки:</Heading>
+          <br/>
+          <Calculator/>
+          
         </VStack>
       </Center>
     </NativeBaseProvider>
